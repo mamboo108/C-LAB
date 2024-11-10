@@ -38,11 +38,11 @@ void merge(int a[], int low, int mid, int high) {
     }
 }
 
-void mergeSort(int a[], int low, int high) {
+void partition(int a[], int low, int high) {
     if (low < high) {
         int mid = (low + high) / 2;
-        mergeSort(a, low, mid);
-        mergeSort(a, mid + 1, high);
+        partition(a, low, mid);
+        partition(a, mid + 1, high);
         merge(a, low, mid, high);
     }
 }
@@ -58,7 +58,7 @@ int main() {
         scanf("%d", &a[i]);
     }
 
-    mergeSort(a, 0, n - 1);
+    partition(a, 0, n - 1);
 
     printf("Sorted array: ");
     for (int i = 0; i < n; i++) {
